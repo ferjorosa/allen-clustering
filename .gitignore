@@ -17,3 +17,4 @@ target/
 project/
 output/
 python/.ipynb_checkpoints/
+.Rproj.user
