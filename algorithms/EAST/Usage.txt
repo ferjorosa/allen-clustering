@@ -1,0 +1,40 @@
+Command: java [-Xmx???M] -cp east.jar EAST
+
+Arguments:
+	Setting for screening stage: 
+		args[0]: Number of starting points of local EM
+		args[1]: Number of continued steps of local EM
+		args[2]: Convergence threshold in loglikelihood
+	Setting for evaluation stage:
+		args[3]: Maximum number of candidate models to enter evaluation stage
+		args[4]: Number of starting points of local EM
+		args[5]: Number of continued steps of local EM
+		args[6]: Convergence threshold in loglikelihood
+	Setting for parameter optimization:
+		args[7]: Number of starting points of full EM
+		args[8]: Number of maximum steps of full EM
+		args[9]: Convergence threshold in loglikelihood
+	General setting: 
+		args[10]: Path to data file (see 5k.data for format)
+		args[11]: Path to ouput directory
+		args[12]: Path to initial model (optional)
+		args[13]: Conduct adjustment for initial model first or not (true/false, optional)
+
+Example: $ java -Xmx1024M -cp east.jar EAST 4 10 0.1 50 16 20 0.1 32 100 0.1 5k.data . >& ./log.txt
+
+This will take several minutes to finish the search process and output a set of intermediate models and a final model M.BIC.txt in the current directory. Note that the standard output during the search process will be redirected to the file log.txt in the current directory. 
+
+
+
+
+Command: java -cp east.jar evaluateModel
+
+Arguments: 
+	args[0]: Path to model file
+	args[1]: Path to data file
+
+Example: $ java -cp east.jar evaluateModel model.bif 5k.data
+
+The output is as follows:
+LL: -35590.96717109195
+BIC: -35722.9836655589

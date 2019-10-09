@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<settings threads='1' screening='64' threshold='1.00e-02'>
+<settings threads='6' screening='64' threshold='1.00e-02'>
 <!-- 
 <covarianceConstraints type='constant' 
  eigenvalueLower='0.01' eigenvalueUpper='Infinity' />

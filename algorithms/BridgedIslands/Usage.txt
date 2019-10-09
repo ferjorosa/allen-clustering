@@ -1,0 +1,112 @@
+
+***********************************************************************************************************************
+If you want to cite the paper, the information is as follows:
+
+   T. F, Liu, N. L. Zhang, P. X. Chen, A. H. Liu, L. K. M. Poon, and Y. Wang (2013). 
+   Greedy learning of latent tree models for multidimensional clustering. Machine Learning, doi:10.1007/s10994-013-5393-0.
+
+***********************************************************************************************************************
+
+Note: BI.jar requires Java 1.7 or higher.
+
+A. If you want to use BI for learning latent tree models only:
+
+Usage:
+                 1. Use default parameters:        java [-Xmx????M] -cp BI.jar clustering/BridgedIslands train-data output-path        
+                 2. Use specified parameters:     java [-Xmx????M] -cp BI.jar clustering/BridgedIslands train-data output-path LocalEmNumRestarts LocalEmMaxSteps FirstEmNumRestarts FirstEmMaxSteps FinalEmNumRestarts FinalEmMaxSteps EM-threshold UDtest-threshold
+
+	Parameters: 
+		train-data:                          The data file for learning LTMs, it can be ARFF format. Note: the arff format data should only contain nominal attributes.
+		output-path:                      The output folder for the final results.
+		LocalEmNumRestarts:     The number of random starts for EM (line 9 and 21 in Algorithm 1).
+		LocalEmMaxSteps:           The maximum number of steps for EM (line 9 and 21 in Algorithm 1).
+		FirstEmNumRestarts:       The number of random starts for first EM on whole model (line 25 in Algorithm 1).
+		FirstEmMaxSteps:            The maximum number of steps for first EM on whole model (line 25 in Algorithm 1).
+		FinalEmNumRestarts:      The number of random starts for final EM on whole model (line 27 in Algorithm 1).
+		FinalEmMaxSteps:           The maximum number of steps for final EM on whole model (line 27 in Algorithm 1)..
+		EM-threshold:                   The converge threshold for EM.
+		UDtest-threshold:             The threshold for UD-test.
+
+      Example (use specified parameters): 
+                 1.  java -Xmx1024M -cp BI.jar clustering/BridgedIslands  ./data/Realworld-data/Asia-train.arff  ./result
+                 2.  java -Xmx1024M -cp BI.jar clustering/BridgedIslands  ./data/Realworld-data/Asia-train.arff  ./result  32 32 32 32 64 100 0.01  3
+
+     The example results:
+	1. FinalBIModel.bif: the learned latent tree model which can be opened and displayed (or analyzed) by one GUI software called Lantern*. 
+
+	Note: 
+	1. Download Lantern: http://www.cse.ust.hk/~lzhang/ltm/index.htm 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+B. If you want to use BI for learning latent tree models  and test the model on testing data:
+
+Usage: 
+	1. Use default parameters:      java [-Xmx????M] -cp BI.jar clustering/LearnAndTest train-data test-data output-path
+                  2. Use specified parameters:   java [-Xmx????M] -cp BI.jar clustering/LearnAndTest train-data test-data output-path LocalEmNumRestarts LocalEmMaxSteps FirstEmNumRestarts FirstEmMaxSteps FinalEmNumRestarts FinalEmMaxSteps EM-threshold UDtest-threshold
+
+	Parameters: 
+		train-data:                         The data file for learning LTMs, it can be ARFF format. Note: the arff format data should only contain nominal attributes.
+		test-data  :                          The test data file for testing the learned LTMs. It should be the same format as train-data. 
+		output-path:                      The output folder for the final results.
+		LocalEmNumRestarts:    The number of random starts for EM (line 9 and 21 in Algorithm 1).
+		LocalEmMaxSteps:          The maximum number of steps for EM (line 9 and 21 in Algorithm 1).
+		FirstEmNumRestarts:      The number of random starts for first EM on whole model (line 25 in Algorithm 1).
+		FirstEmMaxSteps:           The maximum number of steps for first EM on whole model (line 25 in Algorithm 1).
+		FinalEmNumRestarts:     The number of random starts for final EM on whole model (line 27 in Algorithm 1).
+		FinalEmMaxSteps:          The maximum number of steps for final EM on whole model (line 27 in Algorithm 1)..
+		EM-threshold:                  The converge threshold for EM.
+		UDtest-threshold:            The threshold for UD-test.
+
+      Example (use specified parameters): 
+	java -Xmx1024M -cp BI.jar clustering/LearnAndTest  ./data/Realworld-data/Asia-train.arff  ./data/Realworld-data/Asia-test.arff  ./result  32 32 32 32 64 100 0.01  3
+
+     The example results:
+	1. FinalBIModel.bif: the learned latent tree model which can be opened and displayed (or analyzed) by one GUI software called Lantern*. 
+	2. Result_LearnAndTest.txt: The BIC score and loglikelihood score of the learned model on both train and text data sets.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+C. If you want to use BI for multi-dimensional clustering:
+
+Usage:
+                 1. Use default parameters:      java [-Xmx????M] -cp BI.jar clustering/LearnAndEvaluate data-file label-index output-path
+                 2. Use specified parameters:   java [-Xmx????M] -cp BI.jar clustering/LearnAndEvaluate data-file label-index output-path LocalEmNumRestarts LocalEmMaxSteps FirstEmNumRestarts FirstEmMaxSteps FinalEmNumRestarts FinalEmMaxSteps EM-threshold UDtest-threshold
+
+	Parameters: 
+		data-file:                            The data file for learning LTMs, it can be ARFF format. Note: the arff format data should only contain discrete variables.
+		label-index:                       The index for the class label variables in data-file. It is only used in evaluation. If there is no label, you can set it to -1.
+		output-path:                     The output folder for the final results.
+		LocalEmNumRestarts:    The number of random starts for EM (line 9 and 21 in Algorithm 1).
+		LocalEmMaxSteps:          The maximum number of steps for EM (line 9 and 21 in Algorithm 1).
+		FirstEmNumRestarts:      The number of random starts for first EM on whole model (line 25 in Algorithm 1).
+		FirstEmMaxSteps:           The maximum number of steps for first EM on whole model (line 25 in Algorithm 1).
+		FinalEmNumRestarts:     The number of random starts for final EM on whole model (line 27 in Algorithm 1).
+		FinalEmMaxSteps:          The maximum number of steps for final EM on whole model (line 27 in Algorithm 1)..
+		EM-threshold:                  The converge threshold for EM.
+		UDtest-threshold:            The threshold for UD-test.
+
+     Example (use specified parameters. the webkb data has 8 class labels which are the first 8 attributes in the data file.): 
+                     java -Xmx1024M -cp BI.jar clustering/LearnAndEvaluate  ./data/Realworld-data/webkb.arff  0-7   ./result  32 32 32 32 64 100 0.01 3
+         
+                    If there is no label, set the label index to -1:
+                     java -Xmx1024M -cp BI.jar clustering/LearnAndEvaluate  ./data/Realworld-data/webkb-336-train.arff  -1   ./result  32 32 32 32 64 100 0.01 3
+
+    The example results:
+	1. FinalBIModel.bif:   the learned latent tree model which can be opened and displayed (or analyzed) by one GUI software called Lantern. 
+	2. HardAssignment.csv:  Each latent variable can be seen as one way to partition the data. Each latent state of the variable represents a class. 
+			      When given one latent variable, we can do hard assignment for each datacase by computing the posterior probability.
+			      This csv file contains hard assignment results for all latent variables and all data cases. The true class labels are also included.
+			      So you can evaluate the clustering results in your way based on the hard assignment results.
+	3. Result_LearnAndEvaluation.txt:  Evaluation results. The evaluation mesure is described in the above MLJ paper. If the label index is set to -1, there will be no evaluation results.
+
+	Note: 
+	1. Download Lantern: http://www.cse.ust.hk/~lzhang/ltm/index.htm 
+                  2. It may take 40 min to analyze the webkb data. 
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Updated: 2014-5-5
+
