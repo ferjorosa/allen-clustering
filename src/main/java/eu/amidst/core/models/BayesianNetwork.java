@@ -253,8 +253,8 @@ public final class BayesianNetwork implements Serializable {
 
         for(ConditionalDistribution condDist: this.distributions.values()){
 
-            // Univariate distributions
-            if(condDist instanceof Multinomial || condDist instanceof Normal) {
+            // Univariate distributions & CLGs
+            if(condDist instanceof Multinomial || condDist instanceof Normal || condDist instanceof ConditionalLinearGaussian) {
                 condDist.randomInitialization(random);
 
             // Multinomial - Multinomial
@@ -348,7 +348,6 @@ public final class BayesianNetwork implements Serializable {
                     }
                 }
             }
-
         }
     }
 

@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * This class extends the abstract class {@link DistributionType} and defines the Normal distribution.
  */
-public class NormalType extends DistributionType {
+public class NormalType extends DistributionType{
 
     /**
      * Creates a new NormalParameterType for the given variable.

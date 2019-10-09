@@ -15,7 +15,7 @@ import eu.amidst.extension.learn.structure.operator.hc.tree.BltmHcDecreaseCard;
 import eu.amidst.extension.learn.structure.operator.hc.tree.BltmHcIncreaseCard;
 import eu.amidst.extension.learn.structure.operator.incremental.BlfmIncOperator;
 import eu.amidst.extension.util.LogUtils;
-import eu.amidst.extension.util.Triple;
+import eu.amidst.extension.util.Tuple3;
 import eu.amidst.extension.util.distance.DistanceFunction;
 import eu.amidst.extension.util.mi.MutualInformation;
 
@@ -141,14 +141,14 @@ public class BLFM_IncLearner {
             iteration++;
 
             /* Estimamos los alpha pares de variables cuyo valor de MI es mas alto */
-            PriorityQueue<Triple<Variable, Variable, Double>> selectedTriples = highestMiVariables(currentMIsMatrix, alpha);
+            PriorityQueue<Tuple3<Variable, Variable, Double>> selectedTriples = highestMiVariables(currentMIsMatrix, alpha);
 
             Result bestIterationResult = new Result(null, -Double.MAX_VALUE, null, "NONE");
-            Triple<Variable, Variable, Result> bestIterationTriple = new Triple<>(null, null, bestIterationResult);
+            Tuple3<Variable, Variable, Result> bestIterationTriple = new Tuple3<>(null, null, bestIterationResult);
 
             /* 1.1 - Iterate through the operators and select the one that returns the best model */
             for (BlfmIncOperator operator : this.operators) {
-                Triple<Variable, Variable, Result> operatorTriple = operator.apply(selectedTriples,
+                Tuple3<Variable, Variable, Result> operatorTriple = operator.apply(selectedTriples,
                         bestResult.getPlateuStructure(),
                         bestResult.getDag());
 
@@ -260,9 +260,9 @@ public class BLFM_IncLearner {
         }
     }
 
-    private PriorityQueue<Triple<Variable, Variable, Double>> highestMiVariables(Map<Variable, Map<Variable, Double>> misMatrix, int alpha) {
+    private PriorityQueue<Tuple3<Variable, Variable, Double>> highestMiVariables(Map<Variable, Map<Variable, Double>> misMatrix, int alpha) {
 
-        PriorityQueue<Triple<Variable, Variable, Double>> queue = new PriorityQueue<>(alpha, new InverseMiComparator());
+        PriorityQueue<Tuple3<Variable, Variable, Double>> queue = new PriorityQueue<>(alpha, new InverseMiComparator());
 
         /*
          * Creamos una lista con las keys del map para poder iterar por la "triangular" de la matriz.
@@ -271,7 +271,7 @@ public class BLFM_IncLearner {
         List<Variable> keysList = new ArrayList<>(misMatrix.keySet());
         Variable firstKey = keysList.get(0);
         Variable secondKey = keysList.get(1);
-        queue.add(new Triple<>(firstKey, secondKey, misMatrix.get(firstKey).get(secondKey)));
+        queue.add(new Tuple3<>(firstKey, secondKey, misMatrix.get(firstKey).get(secondKey)));
 
         /* Iteramos por la triangular de la matriz de MIs para obtener el par de variables con valor maximo */
         for(int i = 0; i < keysList.size(); i++)
@@ -280,19 +280,19 @@ public class BLFM_IncLearner {
                 Variable y = keysList.get(j);
 
                 if(queue.size() < alpha)
-                    queue.add(new Triple<>(x,y,misMatrix.get(x).get(y)));
+                    queue.add(new Tuple3<>(x,y,misMatrix.get(x).get(y)));
                 else if(misMatrix.get(x).get(y) > queue.peek().getThird()){
                     queue.poll();
-                    queue.add(new Triple<>(x,y,misMatrix.get(x).get(y)));
+                    queue.add(new Tuple3<>(x,y,misMatrix.get(x).get(y)));
                 }
             }
 
         return queue;
     }
 
-    private class InverseMiComparator implements Comparator<Triple<Variable, Variable, Double>> {
+    private class InverseMiComparator implements Comparator<Tuple3<Variable, Variable, Double>> {
         @Override
-        public int compare(Triple<Variable, Variable, Double> o1, Triple<Variable, Variable, Double> o2) {
+        public int compare(Tuple3<Variable, Variable, Double> o1, Tuple3<Variable, Variable, Double> o2) {
             if(o1.getThird().equals(o2.getThird()))
                 return 0;
             // keep the biggest values

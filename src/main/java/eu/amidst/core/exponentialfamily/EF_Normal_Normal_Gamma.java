@@ -38,7 +38,7 @@ import java.util.Map;
  * <i>Representation, Inference and Learning of Bayesian Networks as Conjugate Exponential Family Models. Technical Report.</i>
  * (<a href="http://amidst.github.io/toolbox/docs/ce-BNs.pdf">pdf</a>) </p>
  */
-public class EF_Normal_Normal_Gamma extends EF_ConditionalDistribution {
+public class EF_Normal_Normal_Gamma extends EF_ConditionalDistribution{
 
     /** Represents the number of parents. */
     int nOfParents;

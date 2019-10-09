@@ -36,7 +36,7 @@ import java.util.Random;
  * <i>Representation, Inference and Learning of Bayesian Networks as Conjugate Exponential Family Models. Technical Report.</i>
  * (<a href="http://amidst.github.io/toolbox/docs/ce-BNs.pdf">pdf</a>) </p>
  */
-public abstract class EF_UnivariateDistribution extends EF_ConditionalDistribution{
+public abstract class EF_UnivariateDistribution extends EF_ConditionalDistribution {
 
     /**
      * Computes the logarithm of the base measure function for a given value.

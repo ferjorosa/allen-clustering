@@ -8,7 +8,7 @@ import eu.amidst.extension.learn.parameter.VBEMConfig;
 import eu.amidst.extension.learn.parameter.VBEM_Local;
 import eu.amidst.extension.learn.structure.Result;
 import eu.amidst.extension.util.GraphUtilsAmidst;
-import eu.amidst.extension.util.Triple;
+import eu.amidst.extension.util.Tuple3;
 import voltric.util.Tuple;
 
 import java.util.*;
@@ -40,7 +40,7 @@ public class BlfmIncAddDiscreteNode implements BlfmIncOperator {
      *
      */
     @Override
-    public Triple<Variable, Variable, Result> apply(Set<Variable> currentSet,
+    public Tuple3<Variable, Variable, Result> apply(Set<Variable> currentSet,
                                                     PlateuStructure plateuStructure,
                                                     DAG dag) {
 
@@ -52,7 +52,7 @@ public class BlfmIncAddDiscreteNode implements BlfmIncOperator {
         /* Return current model if current number of discrete latent nodes is maximum */
         long numberOfLatentNodes = dag.getVariables().getListOfVariables().stream().filter(x->x.isDiscrete() && !x.isObservable()).count();
         if(numberOfLatentNodes >= this.maxNumberOfDiscreteLatentNodes)
-            return new Triple<>(null, null, new Result(bestModel, bestModelScore, dag, "AddDiscreteNode"));
+            return new Tuple3<>(null, null, new Result(bestModel, bestModelScore, dag, "AddDiscreteNode"));
 
         /* Create a copy of the variables and DAG objects */
         Variables copyVariables = dag.getVariables().deepCopy();
@@ -108,14 +108,14 @@ public class BlfmIncAddDiscreteNode implements BlfmIncOperator {
             copyDAG.getParentSet(bestPair.getSecond()).addParent(newLatentVar);
         }
 
-        return new Triple<>(bestPair.getFirst(), bestPair.getSecond(), new Result(bestModel, bestModelScore, copyDAG, "AddDiscreteNode"));
+        return new Tuple3<>(bestPair.getFirst(), bestPair.getSecond(), new Result(bestModel, bestModelScore, copyDAG, "AddDiscreteNode"));
     }
 
     /**
      *
      */
     @Override
-    public Triple<Variable, Variable, Result> apply(PriorityQueue<Triple<Variable, Variable, Double>> selectedTriples,
+    public Tuple3<Variable, Variable, Result> apply(PriorityQueue<Tuple3<Variable, Variable, Double>> selectedTriples,
                                                     PlateuStructure plateuStructure,
                                                     DAG dag) {
 
@@ -127,14 +127,14 @@ public class BlfmIncAddDiscreteNode implements BlfmIncOperator {
         /* Return current model if current number of discrete latent nodes is maximum */
         long numberOfLatentNodes = dag.getVariables().getListOfVariables().stream().filter(x->x.isDiscrete() && !x.isObservable()).count();
         if(numberOfLatentNodes >= this.maxNumberOfDiscreteLatentNodes)
-            return new Triple<>(null, null, new Result(bestModel, bestModelScore, dag, "AddDiscreteNode"));
+            return new Tuple3<>(null, null, new Result(bestModel, bestModelScore, dag, "AddDiscreteNode"));
 
         /* Create a copy of the variables and DAG objects */
         Variables copyVariables = dag.getVariables().deepCopy();
         DAG copyDAG = dag.deepCopy(copyVariables);
 
         /* Iterate through the queue of selected triples */
-        for(Triple<Variable, Variable, Double> triple: selectedTriples){
+        for(Tuple3<Variable, Variable, Double> triple: selectedTriples){
             Variable firstVar = copyVariables.getVariableByName(triple.getFirst().getName());
             Variable secondVar = copyVariables.getVariableByName(triple.getSecond().getName());
 
@@ -177,6 +177,6 @@ public class BlfmIncAddDiscreteNode implements BlfmIncOperator {
             copyDAG.getParentSet(bestPair.getSecond()).addParent(newLatentVar);
         }
 
-        return new Triple<>(bestPair.getFirst(), bestPair.getSecond(), new Result(bestModel, bestModelScore, copyDAG, "AddDiscreteNode"));
+        return new Tuple3<>(bestPair.getFirst(), bestPair.getSecond(), new Result(bestModel, bestModelScore, copyDAG, "AddDiscreteNode"));
     }
 }

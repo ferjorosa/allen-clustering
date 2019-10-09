@@ -37,7 +37,7 @@ import static eu.amidst.core.learning.parametric.bayesian.DriftSVB.TRUNCATED_NOR
 /**
  * Created by andresmasegosa on 14/4/16.
  */
-public class MultiDriftSVB extends SVB{
+public class MultiDriftSVB extends SVB {
 
     EF_TruncatedUnivariateDistribution ef_TExpP;
     EF_TruncatedUnivariateDistribution[] ef_TExpQ;

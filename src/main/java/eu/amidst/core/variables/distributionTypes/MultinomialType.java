@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * This class extends the abstract class {@link DistributionType} and defines the Multinomial distribution type.
  */
-public class MultinomialType extends DistributionType {
+public class MultinomialType extends DistributionType{
 
     /**
      * Creates a new MultinomialType for the given variable.

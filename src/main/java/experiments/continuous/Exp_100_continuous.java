@@ -5,8 +5,8 @@ import eu.amidst.core.datastream.DataOnMemory;
 import eu.amidst.core.io.DataStreamLoader;
 import eu.amidst.extension.util.LogUtils;
 import eu.amidst.extension.util.Tuple4;
-import experiments.GLCM;
-import experiments.GMM;
+import methods.GLCM;
+import methods.GMM;
 import org.latlab.io.bif.BifWriter;
 import org.latlab.learner.geast.IModelWithScore;
 
@@ -28,11 +28,11 @@ public class Exp_100_continuous {
         DataOnMemory<DataInstance> data = DataStreamLoader.open(filename).toDataOnMemory();
 
         /* GLCM */
-        Tuple4<IModelWithScore, Double, Double, Long> glcmResult = GLCM.run(data, "geast_settings.xml", logLevel);
+        Tuple4<IModelWithScore, Double, Double, Long> glcmResult = GLCM.learnModel(data, "geast_settings.xml", logLevel);
         storeResult(glcmResult.getFirst(), "models/glcm_100.bif");
 
         /* GMM */
-        Tuple4<IModelWithScore, Double, Double, Long> gmmResult = GMM.run(data, "geast_settings.xml", logLevel);
+        Tuple4<IModelWithScore, Double, Double, Long> gmmResult = GMM.learnModel(data, "geast_settings.xml", logLevel);
         storeResult(gmmResult.getFirst(), "models/gmm_100.bif");
 
         /* PLTM-EAST */

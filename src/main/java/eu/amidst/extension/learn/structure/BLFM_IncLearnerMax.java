@@ -13,7 +13,7 @@ import eu.amidst.extension.learn.structure.operator.hc.tree.BltmHcDecreaseCard;
 import eu.amidst.extension.learn.structure.operator.hc.tree.BltmHcIncreaseCard;
 import eu.amidst.extension.learn.structure.operator.incremental.BlfmIncOperator;
 import eu.amidst.extension.util.LogUtils;
-import eu.amidst.extension.util.Triple;
+import eu.amidst.extension.util.Tuple3;
 
 import java.util.*;
 
@@ -85,11 +85,11 @@ public class BLFM_IncLearnerMax {
             iteration++;
 
             Result bestIterationResult = new Result(null, -Double.MAX_VALUE, null, "NONE");
-            Triple<Variable, Variable, Result> bestIterationTriple = new Triple<>(null, null, bestIterationResult);
+            Tuple3<Variable, Variable, Result> bestIterationTriple = new Tuple3<>(null, null, bestIterationResult);
 
             /* 1.1 - Iterate through the operators and select the one that returns the best model */
             for (BlfmIncOperator operator : this.operators) {
-                Triple<Variable, Variable, Result> operatorTriple = operator.apply(currentSet,
+                Tuple3<Variable, Variable, Result> operatorTriple = operator.apply(currentSet,
                         bestResult.getPlateuStructure(),
                         bestResult.getDag());
 

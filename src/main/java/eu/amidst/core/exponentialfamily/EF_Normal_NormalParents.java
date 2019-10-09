@@ -35,7 +35,7 @@ import java.util.stream.IntStream;
  * <i>Representation, Inference and Learning of Bayesian Networks as Conjugate Exponential Family Models. Technical Report.</i>
  * (<a href="http://amidst.github.io/toolbox/docs/ce-BNs.pdf">pdf</a>) </p>
  */
-public class EF_Normal_NormalParents extends EF_ConditionalDistribution {
+public class EF_Normal_NormalParents extends EF_ConditionalDistribution  {
 
     /** Represents the size of the sufficient statistics in this EF_Normal_NormalParents distribution. */
     int sizeSS;

@@ -276,7 +276,7 @@ public class MAPInference implements PointEstimator {
         WeightedAssignment weightedAssignment;
 
         BayesianNetworkSampler bnSampler = new BayesianNetworkSampler(this.model);
-        Stream<Assignment > samples = bnSampler.sampleToDataStream(this.sampleSize).stream().map(sample -> (Assignment)sample);
+        Stream<Assignment> samples = bnSampler.sampleToDataStream(this.sampleSize).stream().map(sample -> (Assignment)sample);
 
         switch(searchAlgorithm) {
             case SAMPLING:

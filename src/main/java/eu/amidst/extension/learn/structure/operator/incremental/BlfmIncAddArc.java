@@ -7,7 +7,7 @@ import eu.amidst.core.variables.Variables;
 import eu.amidst.extension.learn.parameter.VBEMConfig;
 import eu.amidst.extension.learn.parameter.VBEM_Local;
 import eu.amidst.extension.learn.structure.Result;
-import eu.amidst.extension.util.Triple;
+import eu.amidst.extension.util.Tuple3;
 import voltric.util.Tuple;
 
 import java.util.*;
@@ -39,7 +39,7 @@ public class BlfmIncAddArc implements BlfmIncOperator {
     }
 
     @Override
-    public Triple<Variable, Variable, Result> apply(Set<Variable> currentSet, PlateuStructure plateuStructure, DAG dag) {
+    public Tuple3<Variable, Variable, Result> apply(Set<Variable> currentSet, PlateuStructure plateuStructure, DAG dag) {
 
         PlateuStructure bestModel = plateuStructure;
         double bestModelScore = -Double.MAX_VALUE;
@@ -102,14 +102,14 @@ public class BlfmIncAddArc implements BlfmIncOperator {
 
             copyDAG.getParentSet(bestPair.getSecond()).addParent(bestPair.getFirst());
 
-            return new Triple<>(bestPair.getFirst(), bestPair.getSecond(), new Result(bestModel, bestModelScore, copyDAG, "AddArc"));
+            return new Tuple3<>(bestPair.getFirst(), bestPair.getSecond(), new Result(bestModel, bestModelScore, copyDAG, "AddArc"));
         }
 
-        return new Triple<>(null, null, new Result(bestModel, bestModelScore, copyDAG, "AddArc"));
+        return new Tuple3<>(null, null, new Result(bestModel, bestModelScore, copyDAG, "AddArc"));
     }
 
     @Override
-    public Triple<Variable, Variable, Result> apply(PriorityQueue<Triple<Variable, Variable, Double>> selectedTriples, PlateuStructure plateuStructure, DAG dag) {
+    public Tuple3<Variable, Variable, Result> apply(PriorityQueue<Tuple3<Variable, Variable, Double>> selectedTriples, PlateuStructure plateuStructure, DAG dag) {
 
         PlateuStructure bestModel = plateuStructure;
         double bestModelScore = -Double.MAX_VALUE;
@@ -120,7 +120,7 @@ public class BlfmIncAddArc implements BlfmIncOperator {
         DAG copyDAG = dag.deepCopy(copyVariables);
 
         /* Iterate through the combinations of selected triples */
-        for(Triple<Variable, Variable, Double> triple: selectedTriples){
+        for(Tuple3<Variable, Variable, Double> triple: selectedTriples){
             // Generate a 2-item list to iterate (in order to avoid repeated code)
             List<Variable> tupleList = new ArrayList<>(2);
             tupleList.add(triple.getFirst());
@@ -171,9 +171,9 @@ public class BlfmIncAddArc implements BlfmIncOperator {
         /* Modify the DAG with the best arc */
         if(bestModelScore > -Double.MAX_VALUE) {
             copyDAG.getParentSet(bestPair.getSecond()).addParent(bestPair.getFirst());
-            return new Triple<>(bestPair.getFirst(), bestPair.getSecond(), new Result(bestModel, bestModelScore, copyDAG, "AddArc"));
+            return new Tuple3<>(bestPair.getFirst(), bestPair.getSecond(), new Result(bestModel, bestModelScore, copyDAG, "AddArc"));
         }
 
-        return new Triple<>(null, null, new Result(bestModel, bestModelScore, copyDAG, "AddArc"));
+        return new Tuple3<>(null, null, new Result(bestModel, bestModelScore, copyDAG, "AddArc"));
     }
 }

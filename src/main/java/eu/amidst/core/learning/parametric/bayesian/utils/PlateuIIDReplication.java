@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 /**
  * This class extends the abstract class {@link PlateuStructure} and defines Plateu IID Replication.
  */
-public class PlateuIIDReplication extends PlateuStructure{
+public class PlateuIIDReplication extends PlateuStructure {
 
     /**
      * Empty builder.
