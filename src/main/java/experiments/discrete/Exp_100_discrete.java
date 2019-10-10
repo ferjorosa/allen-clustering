@@ -13,6 +13,7 @@ import experiments.util.AmidstToVoltricModel;
 import experiments.util.DiscreteClusteringMeasures;
 import methods.BinA;
 import methods.BinG;
+import methods.LCM;
 import methods.VariationalLCM;
 import voltric.io.model.bif.BnLearnBifFileWriter;
 import voltric.io.model.xmlbif.XmlBifReader;
@@ -33,9 +34,10 @@ public class Exp_100_discrete {
     public static void main(String[] args) throws Exception {
         long seed = 0;
         /* Aprendemos los modelos */
-        //learnExperiment(seed, LogUtils.LogLevel.INFO);
+        learnExperiment(seed, LogUtils.LogLevel.INFO);
 
         /* Cargamos el LCM y estimamos sus variables mas relevantes en orden por cada cluster*/
+        /*
         List<String> latentVarNames = new ArrayList<>(1);
         latentVarNames.add("clustVar");
         DiscreteBayesNet lcm = XmlBifReader.processFile(new File("models/discrete/exact/lcm_100.xml"), latentVarNames);
@@ -48,6 +50,7 @@ public class Exp_100_discrete {
                 System.out.println(variablePair.getFirst().getName() + " -> " + variablePair.getSecond());
             }
         }
+        */
     }
 
 
@@ -57,32 +60,32 @@ public class Exp_100_discrete {
         DataOnMemory<DataInstance> data = DataStreamLoader.open(filename).toDataOnMemory();
 
         /* Bin-A */
-        Tuple3<BayesianNetwork, Double, Long> binAresult = BinA.learnModel(data, seed, BLFM_BinA.LinkageType.AVERAGE, logLevel, true);
-        DiscreteBayesNet binAmodel = AmidstToVoltricModel.transform(binAresult.getFirst());
-        String output = "models/discrete/binA_100.bif";
-        BnLearnBifFileWriter writer = new BnLearnBifFileWriter(new FileOutputStream(output));
-        writer.write(binAmodel);
+        //Tuple3<BayesianNetwork, Double, Long> binAresult = BinA.learnModel(data, seed, BLFM_BinA.LinkageType.AVERAGE, logLevel, true);
+        //DiscreteBayesNet binAmodel = AmidstToVoltricModel.transform(binAresult.getFirst());
+        //String output = "models/discrete/binA_100.bif";
+        //BnLearnBifFileWriter writer = new BnLearnBifFileWriter(new FileOutputStream(output));
+        //writer.write(binAmodel);
 
         /* Bin-G */
-        Tuple3<BayesianNetwork, Double, Long> binGresult = BinG.learnModel(data, seed, logLevel, true);
-        DiscreteBayesNet binGmodel = AmidstToVoltricModel.transform(binGresult.getFirst());
-        output = "models/discrete/binG_100.bif";
-        writer = new BnLearnBifFileWriter(new FileOutputStream(output));
-        writer.write(binGmodel);
+        //Tuple3<BayesianNetwork, Double, Long> binGresult = BinG.learnModel(data, seed, logLevel, true);
+        //DiscreteBayesNet binGmodel = AmidstToVoltricModel.transform(binGresult.getFirst());
+        //output = "models/discrete/binG_100.bif";
+        //writer = new BnLearnBifFileWriter(new FileOutputStream(output));
+        //writer.write(binGmodel);
 
         /* Learn LCM */
-        //Tuple4<DiscreteBayesNet, Double, Double, Long> lcmResult = LCM.runParallel(data, seed, logLevel);
-        //String output = "models/lcm_100.bif";
-        //BnLearnBifFileWriter writer = new BnLearnBifFileWriter(new FileOutputStream(output));
-        //writer.write(lcmResult.getFirst());
+        Tuple4<DiscreteBayesNet, Double, Double, Long> lcmResult = LCM.runParallel(data, seed, logLevel);
+        String output = "models/lcm_100.bif";
+        BnLearnBifFileWriter writer = new BnLearnBifFileWriter(new FileOutputStream(output));
+        writer.write(lcmResult.getFirst());
 
         /* Learn Variational LCM */
-        Map<String, double[]> priors = new LinkedHashMap<>();
-        priors = PriorsFromData.generate(data, 1);
-        Tuple3<BayesianNetwork, Double, Long> variationalLCMresult = VariationalLCM.learnModel(data, seed, priors, logLevel, true);
-        DiscreteBayesNet variationalLcmModel = AmidstToVoltricModel.transform(variationalLCMresult.getFirst());
-        output = "models/discrete/varlcm_100.bif";
-        writer = new BnLearnBifFileWriter(new FileOutputStream(output));
-        writer.write(variationalLcmModel);
+        //Map<String, double[]> priors = new LinkedHashMap<>();
+        //priors = PriorsFromData.generate(data, 1);
+        //Tuple3<BayesianNetwork, Double, Long> variationalLCMresult = VariationalLCM.learnModel(data, seed, priors, logLevel, true);
+        //DiscreteBayesNet variationalLcmModel = AmidstToVoltricModel.transform(variationalLCMresult.getFirst());
+        //output = "models/discrete/varlcm_100.bif";
+        //writer = new BnLearnBifFileWriter(new FileOutputStream(output));
+        //writer.write(variationalLcmModel);
     }
 }

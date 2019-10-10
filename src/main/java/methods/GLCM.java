@@ -123,7 +123,7 @@ public class GLCM {
                 bestBIC = currentBic;
             } else {
                 System.out.println("SCORE STOPPED IMPROVING");
-                return result;
+                return bestResult;
             }
         }
 

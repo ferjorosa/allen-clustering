@@ -144,7 +144,7 @@ public class LCM {
 
         LearningResult<DiscreteBayesNet> bestResult = null;
 
-        for(int card = 2; card < Integer.MAX_VALUE; card++) {
+        for(int card = 9; card < 10; card++) {
             long initTime = System.currentTimeMillis();
             HLCM lcm = HlcmCreator.createLCM(dataSet.getVariables(), card, new Random(seed));
             LearningResult<DiscreteBayesNet> result = em.learnModel(lcm, dataSet);
@@ -163,7 +163,7 @@ public class LCM {
                 bestResult = result;
             } else {
                 System.out.println("SCORE STOPPED IMPROVING");
-                return result;
+                return bestResult;
             }
         }
 
