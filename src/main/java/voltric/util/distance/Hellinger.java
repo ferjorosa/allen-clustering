@@ -3,6 +3,7 @@ package voltric.util.distance;
 import voltric.model.DiscreteBayesNet;
 import voltric.model.DiscreteBeliefNode;
 import voltric.potential.Function;
+import voltric.util.Utils;
 import voltric.variables.DiscreteVariable;
 
 import java.util.ArrayList;
@@ -15,7 +16,10 @@ import java.util.List;
 public class Hellinger {
 
     public static double distance(Function a, Function b) {
-        return Math.sqrt(1 - Bhattacharyya.distance(a,b));
+        double bhattacharyyaDist = Bhattacharyya.distance(a,b);
+        if(Utils.eqDouble(bhattacharyyaDist, 0))
+            return 0;
+        return Math.sqrt(1 - bhattacharyyaDist);
     }
 
     // Cuando son HLCMs las hijas de una LV pueden ser del tipo manifest o latent, para calcular la distancia
