@@ -10,23 +10,46 @@ import eu.amidst.extension.util.PriorsFromData;
 import eu.amidst.extension.util.Tuple3;
 import eu.amidst.extension.util.Tuple4;
 import experiments.util.AmidstToVoltricModel;
+import experiments.util.DiscreteClusteringMeasures;
 import methods.BinA;
 import methods.BinG;
 import methods.VariationalLCM;
 import voltric.io.model.bif.BnLearnBifFileWriter;
+import voltric.io.model.xmlbif.XmlBifReader;
 import voltric.model.DiscreteBayesNet;
+import voltric.util.Tuple;
+import voltric.variables.DiscreteVariable;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Exp_100_discrete {
 
     public static void main(String[] args) throws Exception {
         long seed = 0;
-        learnExperiment(seed, LogUtils.LogLevel.INFO);
+        /* Aprendemos los modelos */
+        //learnExperiment(seed, LogUtils.LogLevel.INFO);
+
+        /* Cargamos el LCM y estimamos sus variables mas relevantes en orden por cada cluster*/
+        List<String> latentVarNames = new ArrayList<>(1);
+        latentVarNames.add("clustVar");
+        DiscreteBayesNet lcm = XmlBifReader.processFile(new File("models/discrete/exact/lcm_100.xml"), latentVarNames);
+        List<List<Tuple<DiscreteVariable, Double>>> mostRelevantVarsPerCluster = DiscreteClusteringMeasures.mostRelevantVarsInLcmPerCluster(lcm);
+        for(int cluster = 0; cluster < mostRelevantVarsPerCluster.size(); cluster++) {
+            List<Tuple<DiscreteVariable, Double>> mostRelevantVarsInCluster = mostRelevantVarsPerCluster.get(cluster);
+            System.out.println("\nCluster " + cluster + ":");
+            for (int i = 0; i < 10; i++) {
+                Tuple<DiscreteVariable, Double> variablePair = mostRelevantVarsInCluster.get(i);
+                System.out.println(variablePair.getFirst().getName() + " -> " + variablePair.getSecond());
+            }
+        }
     }
+
 
     private static void learnExperiment(long seed, LogUtils.LogLevel logLevel) throws IOException {
 

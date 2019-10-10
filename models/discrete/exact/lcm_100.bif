@@ -1,404 +1,404 @@
-network LCM {
+network lcm {
 }
 
 variable x3324 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x26038 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9456 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x334 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x6138 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x23253 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x94081 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x54843 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x3274 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x221692 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x6000 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x254531 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x2908 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x100130155 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x114088 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x23230 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x116966 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x64062 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9645 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x6262 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x55814 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x23613 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x10147 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x54904 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x4898 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x5411 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x55704 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x440270 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x4897 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x23077 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x3535 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9284 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x5310 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x4297 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x5297 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x8499 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x55904 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x57035 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x10905 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x28978 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x6134 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x54460 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x80205 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x56853 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x577 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9324 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x5789 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x54212 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x4331 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x64848 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x6432 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x5144 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x140890 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x23262 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9475 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x8997 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x55082 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9699 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x10439 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9987 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x4673 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x23112 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x57468 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9515 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x3778 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x55294 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x23518 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x5101 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x6894 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x285175 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x286411 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x54715 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x10915 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x58517 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x55112 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x1655 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x8925 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x780813 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x347746 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x54737 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9295 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x7345 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x151613 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x100128906 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x490 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9406 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x4133 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x2823 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x9611 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x6430 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x1759 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x7267 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x1479 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x2891 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x10777 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x51747 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x25957 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x378938 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x55384 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable x440823 {
-	type discrete[4] { '0', 'low', 'medium', 'high' };
+	type discrete[4] { 0, low, medium, high };
 }
 
 variable clustVar {
