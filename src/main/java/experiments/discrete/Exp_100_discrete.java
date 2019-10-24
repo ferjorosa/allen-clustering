@@ -34,10 +34,10 @@ public class Exp_100_discrete {
     public static void main(String[] args) throws Exception {
         long seed = 0;
         /* Aprendemos los modelos */
-        learnExperiment(seed, LogUtils.LogLevel.INFO);
+        //learnExperiment(seed, LogUtils.LogLevel.INFO);
 
         /* Cargamos el LCM y estimamos sus variables mas relevantes en orden por cada cluster*/
-        /*
+
         List<String> latentVarNames = new ArrayList<>(1);
         latentVarNames.add("clustVar");
         DiscreteBayesNet lcm = XmlBifReader.processFile(new File("models/discrete/exact/lcm_100.xml"), latentVarNames);
@@ -50,7 +50,7 @@ public class Exp_100_discrete {
                 System.out.println(variablePair.getFirst().getName() + " -> " + variablePair.getSecond());
             }
         }
-        */
+
     }
 
 

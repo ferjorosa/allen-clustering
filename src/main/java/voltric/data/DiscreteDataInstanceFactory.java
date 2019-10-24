@@ -45,4 +45,15 @@ public class DiscreteDataInstanceFactory {
         }
         return new DiscreteDataInstance(values);
     }
+
+    public static DiscreteDataInstance fromRawData(List<String> values, List<DiscreteVariable> variables) {
+        if(values.size() != variables.size())
+            throw new IllegalArgumentException("Both lists need to have the same length");
+
+        int[] intValues = new int[values.size()];
+        for(int i = 0; i < values.size(); i++){
+            intValues[i] = variables.get(i).indexOf(values.get(i));
+        }
+        return new DiscreteDataInstance(intValues);
+    }
 }
