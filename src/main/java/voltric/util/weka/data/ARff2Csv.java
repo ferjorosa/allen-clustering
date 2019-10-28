@@ -15,13 +15,13 @@ public class ARff2Csv {
 
         // load Arff
         ArffLoader loader = new ArffLoader();
-        loader.setSource(new File("articulo/data/synthetic/10nodes/random10NodesMPC_5000.arff"));
+        loader.setSource(new File("data/discrete/gene_names.arff"));
         Instances data = loader.getDataSet();
 
         // save CSV
         CSVSaver saver = new CSVSaver();
         saver.setInstances(data);
-        saver.setFile(new File("articulo/data/synthetic/10nodes/random10NodesMPC_5000.csv"));
+        saver.setFile(new File("data/discrete/gene_names.csv"));
         //saver.setDestination(new File("data/parkinson/s6/d897_female_motor_nms55_s6.arff"));
         saver.writeBatch();
     }
